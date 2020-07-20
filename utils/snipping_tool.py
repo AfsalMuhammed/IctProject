@@ -5,7 +5,8 @@ from PIL import ImageGrab
 import numpy as np
 import cv2
 
-
+# * ScreenShot is grabbed and saved in the folder ImageSource
+# ! after screenshot is grabbed automatically exiting the program
 class MyWidget(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
@@ -46,7 +47,7 @@ class MyWidget(QtWidgets.QWidget):
         y2 = max(self.begin.y(), self.end.y())
 
         img = ImageGrab.grab(bbox=(x1, y1, x2, y2))
-        img.save("capture.png")
+        img.save("ImageSource/capture.png")
         img = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
 
         cv2.imshow("Captured Image", img)
@@ -65,5 +66,7 @@ def image_grab():
     window = MyWidget()
     window.show()
     app.aboutToQuit.connect(app.deleteLater)
-    sys.exit(app.exec_())
+    app.exec_()
+
+
 
