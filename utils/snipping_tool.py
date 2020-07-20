@@ -5,8 +5,15 @@ from PIL import ImageGrab
 import numpy as np
 import cv2
 
-# * ScreenShot is grabbed and saved in the folder ImageSource
-# ! after screenshot is grabbed automatically exiting the program
+
+"""
+
+this tool will grab a particular portion of the screen and save it to the
+ImageSource Folder
+
+"""
+
+
 class MyWidget(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
@@ -55,18 +62,10 @@ class MyWidget(QtWidgets.QWidget):
         cv2.destroyAllWindows()
 
 
-# if __name__ == "__main__":
-#     app = QtWidgets.QApplication(sys.argv)
-#     window = MyWidget()
-#     window.show()
-#     app.aboutToQuit.connect(app.deleteLater)
-#     sys.exit(app.exec_())
 def image_grab():
     app = QtWidgets.QApplication(sys.argv)
     window = MyWidget()
     window.show()
     app.aboutToQuit.connect(app.deleteLater)
     app.exec_()
-
-
 
