@@ -10,8 +10,11 @@ def image_open():
     """
     dst = "ImageSource/capture.png"
     root = tk.Tk()
-    root.withdraw()
     file_path = filedialog.askopenfilename()
-    print(os.chdir(".."))
     copyfile(file_path, dst)
+    root.mainloop()
+    return "done"
+
+
+# image_open()
 

@@ -1,5 +1,6 @@
 import eel
 import utils.snipping_tool as snipping_tool
+import utils.file_opener as FileOpener
 
 
 # Set web files folder
@@ -13,8 +14,13 @@ def say_hello_py(x):
     return "a string"
 
 
-# say_hello_py("Python World!")
-# eel.say_hello_js("Python World!")  # Call a Javascript function
+@eel.expose
+def fileHandling(x):
+    print("Hello from %s" % x)
+    a = FileOpener.image_open()
+    print(a)
+    return "File Copied to Directory"
+
 
 eel.start("hello.html", size=(300, 200))
 
